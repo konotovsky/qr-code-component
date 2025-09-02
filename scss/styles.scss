@@ -1,0 +1,75 @@
+@use "sass:map";
+
+$colors: (
+  slate-900: #1f314f,
+  slate-500: #68778d,
+  slate-300: #d5e1ef,
+);
+
+$spacing: (
+  500: 40px,
+  300: 24px,
+  200: 16px,
+);
+
+$text-presets: (
+  1: (
+    font: 700 22px/120% "Outfit",
+    letter-spacing: 0px,
+  ),
+  2: (
+    font: 400 15px/140% "Outfit",
+    letter-spacing: 0.2px,
+  ),
+);
+
+body {
+  margin: 0;
+  background-color: map.get($colors, slate-300);
+  padding: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+.layout__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 20px;
+  background-color: white;
+  padding: map.get($spacing, 200);
+  width: 320px;
+  height: 500px;
+  text-align: center;
+
+  &__image {
+    border-radius: 10px;
+    width: 288px;
+    height: 288px;
+  }
+
+  &__content {
+    padding: 0 map.get($spacing, 200);
+  }
+
+  &__title {
+    margin: map.get($spacing, 300) 0 map.get($spacing, 200) 0;
+    color: map.get($colors, slate-900);
+    font: map.get(map.get($text-presets, 1), font);
+    letter-spacing: map.get(map.get($text-presets, 1), letter-spacing);
+  }
+
+  &__text {
+    margin-bottom: map.get($spacing, 500);
+    color: map.get($colors, slate-500);
+    font: map.get(map.get($text-presets, 2), font);
+    letter-spacing: map.get(map.get($text-presets, 2), letter-spacing);
+  }
+}
